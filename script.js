@@ -116,5 +116,5 @@ robbiePic.addEventListener("click", showContact);
 robbieName.addEventListener("click", showContact);
 themeToggle.addEventListener("click", toggleTheme);
 clearButton.addEventListener("click", () => {
-	conversation.innerHTML = '<div class="robbie-answer"><p>Hi! I am Robbie, your personnal translator. Type anything you want and I\'ll translate into Binary Code. I\'m ready!</p></div>';
+	conversation.innerHTML = '<div class="robbie-answer"><p>Hi! I am Robbie, your personnal translator. Type anything you want and I\'ll translate it into Binary Code. I\'m ready!</p></div>';
 })
