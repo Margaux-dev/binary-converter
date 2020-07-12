@@ -1,0 +1,348 @@
+:root{
+	--main-color: rgba(119,0,255,1.00);
+	--main-color-dark: rgba(176,162,213,1.00);
+	--bg-color: rgba(247,238,255,1);
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html{
+	font-size: 62.5%;
+}
+
+body{
+	width: 100vw;
+	height: 100%;
+	font-family: 'Varela Round', sans-serif;
+}
+
+header, #conv-header, #convert-form{
+	max-width: 768px;
+	background-color: var(--bg-color);
+}
+
+
+/* HEADER */
+header{
+	width: 100%;
+	height: 30px;
+	padding: 10px 10px 0 10px;
+	display: grid;
+	grid-template-columns: repeat(3, 33.33%);
+	color: var(--main-color);
+	font-size: 1.3rem;
+}
+
+#theme-toggle{
+	cursor: pointer;
+	text-align: right;
+}
+
+#clock{
+	text-align: center;
+}
+
+
+/* CONVERSATION HEADER */
+#conv-header{
+	padding: 10px;
+	border-bottom: 1px solid var(--main-color);
+}
+
+.fas.fa-chevron-left{
+	margin: 5px 0 0 10px;
+	color: var(--main-color);
+	font-size: 1.5rem;
+	cursor: pointer;
+	z-index: 10;
+}
+
+#robbie-pic{
+	width: 100%;
+	margin-top: -20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#robbie-pic p{
+	margin-top: 7px;
+	color: rgba(20,4,39,1.00);
+	font-size: 1.3rem;
+	cursor: pointer;
+}
+
+.fas.fa-chevron-right{
+	color: var(--main-color);
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+img{
+	width: 20vw;
+	max-width: 100px;
+	min-width: 70px;
+	height: 20vw;
+	max-height: 100px;
+	min-height: 70px;
+	background-color: var(--main-color);
+	padding: 10px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+
+/* CONTACT */
+#robbie-contact{
+	width: 100%;
+	max-width: 768px;
+	padding: 20px 0 10px 0;
+	background-color: var(--main-color);
+	color: #fff;
+	font-size: 1.2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#robbie-contact p{
+	margin-bottom: 10px;
+}
+
+
+/* CONVERSATION */
+#conv{
+	width: 100%;
+	max-width: 768px;
+	height: calc(100% - 175px - 5vh);
+	position: absolute;
+	bottom: 56px;
+	display: flex;
+	flex-direction: column-reverse;
+	padding: 15px 15px;
+	background-color: #fff;
+	z-index: -10;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.robbie-answer, .your-answer{
+	position: relative;
+	width: 70vw;
+	max-width: 600px;
+	min-width: 270px;
+	margin-top: 15px;
+	padding: 5px 10px;
+	font-size: 1.3rem;
+	text-align: left;
+	border-radius: 15px !important;
+	z-index: 2;
+}
+
+.robbie-answer{
+	align-self: flex-start;
+	color: #fff;
+	background-color: var(--main-color);
+}
+
+.your-answer{
+	min-height: 22px;
+	align-self: flex-end;
+	color: rgba(46,9,91,1.00);
+	background-color: rgba(224,217,255,1.00);
+}
+
+.robbie-answer::before, .your-answer::before{
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	width: 15px;
+	height: 15px;
+	z-index: -1;
+}
+
+.robbie-answer::before{
+	left: -3px;
+	background-color: var(--main-color);
+	border-bottom-right-radius: 13px!important;
+}
+
+.your-answer::before{
+	right: -3px;
+	background-color: rgba(224,217,255,1.00);
+	border-bottom-left-radius: 13px;
+}
+
+.robbie-answer::after, .your-answer::after{
+	content: "";
+	position: absolute;
+	bottom: -2px;	
+	width: 7px;
+	height: 17px;
+	background-color: #fff;
+	z-index: 0;
+}
+
+.robbie-answer::after{
+	left: -7px;
+	border-bottom-right-radius: 13px !important;
+}
+
+.your-answer::after{
+	right: -7px;
+	border-bottom-left-radius: 13px;
+}
+
+.loading{
+	height: 26px;
+	font-size: 55px;
+	line-height: 0px;
+	padding-top: 0;
+	animation-name: dots;
+	animation-duration: .7s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+}
+
+@keyframes dots{
+	0%{
+		color: rgba(255,255,255,0.40);
+	}
+	100%{
+		color: #fff;
+	}
+}
+
+
+/* TYPE YOUR MESSAGE */
+#convert-form{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	border-top: 1px solid var(--main-color);
+}
+
+#text-to-convert{
+	width: 85vw;
+	max-width: 652.8px;
+	height: 35px;
+	padding: 0 10px;
+	line-height: 35px;
+	border: 1px solid var(--main-color);
+	border-radius: 15px;
+	color: rgba(91,82,104,1.00);
+	font-family: 'Varela Round', sans-serif;
+	background-color: #fff;
+	resize: none;
+}
+
+#text-to-convert::placeholder{
+	color: rgba(84,0,181,0.4);
+}
+
+#send-button{
+	width: 35px;
+	height: 35px;
+	margin-left: 3px;
+	padding-right: 2.5px;
+	border: none;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 15px;
+	text-align: center;
+	background-color: var(--main-color);
+}
+
+
+
+/* RESPONSIVE : LARGE SCREENS */
+@media screen and (min-width: 769px){
+	body{
+		margin: 120px calc((100% - 768px) / 2);
+	}
+	body::before{
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: -webkit-linear-gradient(left, #2C1570 0%, #5F2E8E 17%, #D3ABFA 50%, #5F2E8E 83%, #2C1570 100%);
+		background-image: -o-linear-gradient(left, #2C1570 0%, #5F2E8E 17%, #D3ABFA 50%, #5F2E8E 83%, #2C1570 100%);
+		background-image: linear-gradient(to right, #2C1570 0%, #5F2E8E 17%, #D3ABFA 50%, #5F2E8E 83%, #2C1570 100%);
+		z-index: -20;
+	}
+	header::before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 120px;
+		background-image: -webkit-linear-gradient(left, #2C1570 0%, #5F2E8E 17%, #D3ABFA 50%, #5F2E8E 83%, #2C1570 100%);
+		background-image: -o-linear-gradient(left, #2C1570 0%, #5F2E8E 17%, #D3ABFA 50%, #5F2E8E 83%, #2C1570 100%);
+		background-image: linear-gradient(to right, #2C1570 0%, #5F2E8E 17%, #D3ABFA 50%, #5F2E8E 83%, #2C1570 100%);
+		background-position: top;
+		background-size: 100%;
+	}
+	#conv{
+		height: calc(100% - 25px - 5vh);
+		bottom: 176px;
+	}
+	#convert-form{
+		bottom: 120px;
+	}
+}
+
+
+
+/* DARK THEME */
+body.dark{
+	background-color: #3D236E;
+}
+
+body.dark header, body.dark #conv-header, body.dark #convert-form{
+	background-color: rgba(34,13,53,1.00);
+}
+
+body.dark header{
+	color: var(--main-color-dark);
+}
+
+body.dark #conv-header #robbie-pic  p{
+	color: var(--main-color-dark);
+}
+
+body.dark #conv{
+	background-color: #3D236E;
+}
+
+body.dark .robbie-answer::after{
+	background-color: #3D236E;
+}
+
+body.dark .your-answer::after{
+	background-color: #3D236E;
+}
+
+body.dark #convert-form #text-to-convert{
+	color: var(--main-color-dark);
+	background-color: #3D236E;
+}
+
+body.dark #convert-form #text-to-convert::placeholder{
+	color: var(--main-color-dark);
+}
+
+body.dark #convert-form #send-button{
+	color: rgba(219,212,236,1.00);
+}
